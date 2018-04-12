@@ -1,6 +1,6 @@
 // User 模块
-import User1 from '@/views/user/user1' 
-import User2 from '@/views/user/user2' 
+import User1 from '@/views/User/User1' 
+import User2 from '@/views/User/User2' 
 
 export default [{
 		path: 'user1',
