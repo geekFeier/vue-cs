@@ -1,0 +1,56 @@
+.el-aside{
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top:0;
+    overflow-y: scroll;
+    z-index: 999;
+    .el-submenu [class^=el-icon-]{
+        font-size: 12px;
+    }
+} 
+.el-menu-item-group__title{
+    padding:0!important;
+}
+.el-menu--popup{
+    padding:0 !important;
+}
+.logo-tit,.logo-tit .el-submenu__title{
+    background:#35384C;
+    height:55px;
+    line-height: 55px;
+}
+.nav-main{
+    padding-top:60px;
+}
+.el-main{
+    padding-top: 60px!important;
+    padding-left: 230px!important;
+}
+.logo{
+    background:#35384C;
+    width: 229px;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #35384C;
+    z-index: 9999;
+    
+    
+    .logo-img{ 
+        cursor: pointer;
+        height: 26px;
+        padding-top: 15px;
+        padding-left: 113px;
+    } 
+    .toggle-icon{
+        position: fixed;
+        left: 22px;
+        font-size: 20px;
+        color:#fff;
+        padding-top: 20px;
+        cursor: pointer;
+    }
+    
+}

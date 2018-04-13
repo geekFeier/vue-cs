@@ -1,0 +1,17 @@
+header{
+    border-bottom:solid 1px #e6e6e6;
+    
+    .admin-img{
+        width: 35px;
+    }
+    .header-nav{
+        padding-top: 9px;
+        float: right;
+    }
+    .el-menu--horizontal{
+        border-bottom: 0;
+    }
+}
+.el-header{
+    padding:0;
+}

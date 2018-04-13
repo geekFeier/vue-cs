@@ -1,179 +1,178 @@
 
 <template>
-
   <el-container>
-    <el-aside width="230px">
-      <el-row>
-        <el-col>
+     <!-- 导航 -->
+      <el-aside width="230px">
+        <div class="logo">
+            <i class="el-icon-circle-close toggle-icon" @click="toggleBar"></i>
+            <img src="static/images/logo.png" class="logo-img" />
+        </div> 
+        <el-row class="nav-main">
+          <el-col>
+            <el-menu :default-active="setMenuActive($route.path)" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#35384C" text-color="#fff" active-text-color="#ffd04b" :collapse="isCollapse">
+              <el-submenu index="1">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>货币信息管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="/user1">user1</el-menu-item>
+                  <el-menu-item index="/user2">user2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-          <el-menu :default-active="setMenuActive($route.path)" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#35384C" text-color="#fff" active-text-color="#ffd04b">
-            
-            <el-submenu index="1">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>货币信息管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="/user1">user1</el-menu-item>
-                <el-menu-item index="/user2">user2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="3">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>注册会员管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="2">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>注册会员管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="4">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>推荐会员管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="3">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>推荐会员管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="5">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>委托交易管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>委托交易管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="6">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>交易所台账管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>交易所台账管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
-            
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>充值提现管理（法币）</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="7">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>充值提现管理（法币）</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>充值提现管理（货币）</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="8">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>充值提现管理（货币）</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>组织机构管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="9">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>组织机构管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>系统运营管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="10">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>系统运营管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>咨询文章管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="11">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>咨询文章管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>站内信息管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="12">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>站内信息管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>系统管理</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="13">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>系统管理</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>c2c</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
+              <el-submenu index="14">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>c2c</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
 
-            <el-submenu index="4">
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span>杠杆</span>
-              </template>
-              <el-menu-item-group>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-            </el-submenu>
- 
+              <el-submenu index="15">
+                <template slot="title">
+                  <i class="el-icon-star-on"></i>
+                  <span>杠杆</span>
+                </template>
+                <el-menu-item-group>
+                  <el-menu-item index="1-1">选项1</el-menu-item>
+                  <el-menu-item index="1-2">选项2</el-menu-item>
+                </el-menu-item-group>
+              </el-submenu>
+            </el-menu>
+          </el-col>
+        </el-row>
+      </el-aside>
 
+    <el-container> 
 
-          </el-menu>
-        </el-col>
-      </el-row>
-    </el-aside>
-
-    <!-- 导航 -->
-    <el-container>
       <!-- 头部 -->
       <el-header>
-        <Header />
+        <Header /> 
       </el-header>
 
       <!-- 中间内容 -->
@@ -192,28 +191,30 @@
  
 <script>
 import Header from "@components/Header";
+import "@css/tab.scss";
 export default {
     name: "Tab",
     data() {
         return {
-            isCollapse: true
+            isCollapse: false
         };
     },
     components: {
         Header
     },
     methods: {
-      //设置菜单栏选中
-			setMenuActive(path) {
-			
-					return path;
-				
-			},
+        //设置菜单栏选中
+        setMenuActive(path) {
+            return path;
+        },
         handleOpen(key, keyPath) {
             console.log(key, keyPath);
         },
         handleClose(key, keyPath) {
             console.log(key, keyPath);
+        },
+        toggleBar() {
+            this.isCollapse = !this.isCollapse;
         }
     }
 };

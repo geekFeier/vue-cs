@@ -1,0 +1,29 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { 
+    margin:0; padding:0; 
+}
+body { background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+a { text-decoration:none; }
+::-webkit-scrollbar {
+    width: 0px;
+    background: #7d7b7c;
+}
+.el-header{
+    padding:0;  
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    background:#fff;
+} 
+.el-container.is-vertical{
+    // padding-left:229px; 
+} 
+.el-submenu__title,.el-menu-item{
+    font-size:12px !important;
+}
+.el-menu-item, .el-submenu__title{
+    height:42px !important;
+    line-height:42px !important;
+}
