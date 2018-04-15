@@ -46,6 +46,8 @@
         </el-form-item>
       </el-form>
     <div id="myChart" :style="{width: '300px', height: '300px'}"></div>
+    vuex:{{getCount}}
+    <button @click="add">count+1</button>
   </div>
 </template>
 
@@ -78,7 +80,7 @@ export default {
      this.drawLine();
   } ,
   methods:{
-     onSubmit() {
+      onSubmit() {
         console.log('submit!');
       },
       drawLine(){
@@ -98,6 +100,16 @@ export default {
                 data: [5, 20, 36, 10, 10, 20]
             }]
         });
+      },
+      add(){
+        // this.$store.commit('increment') 、、 
+        this.$store.dispatch('increment')
+      }
+  },
+  computed:{
+    getCount(){
+      // return this.$store.state.count;
+      return this.$store.getters.getState
     }
   }
 }

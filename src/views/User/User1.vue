@@ -2,7 +2,7 @@
 <template>
   <div class="hello">
     我是user1
-
+    vuex:{{getCount}}
     <el-tree :data="data5" show-checkbox node-key="id" default-expand-all :expand-on-click-node="false">
       <span class="custom-tree-node" slot-scope="{ node, data }">
         <span>{{ node.label }}</span>
@@ -32,7 +32,6 @@
       <el-button @click="toggleSelection([tableData3[1], tableData3[2]])">切换第二、第三行的选中状态</el-button>
       <el-button @click="toggleSelection()">取消选择</el-button>
     </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
   </div>
 </template>
@@ -184,6 +183,11 @@ export default {
       handleSelectionChange(val) {
         this.multipleSelection = val;
       }
+    },
+    computed:{
+        getCount(){
+        return this.$store.state.count;
+        }
     }
 };
 </script>
