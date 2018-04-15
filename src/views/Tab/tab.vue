@@ -2,15 +2,23 @@
 <template>
   <el-container>
      <!-- 导航 -->
-      <el-aside width="230px">
-        <div class="logo">
-            <i class="el-icon-circle-close toggle-icon" @click="toggleBar"></i>
-            <img src="static/images/logo.png" class="logo-img" />
-        </div> 
+      <el-aside :style="{width:num+'px',transition:'.2s'}">
+        <!-- <div class="logo">
+            
+        </div>  -->
         <el-row class="nav-main">
           <el-col>
             <el-menu :default-active="setMenuActive($route.path)" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" background-color="#35384C" text-color="#fff" active-text-color="#ffd04b" :collapse="isCollapse">
-              <el-submenu index="1">
+
+              
+              <el-submenu index="1" class="logo">
+                <template slot="title">
+                  <i class="el-icon-circle-close toggle-icon" @click="toggleBar"></i>
+                  <img src="static/images/logo.png" class="logo-img" />
+                </template>
+              </el-submenu>
+
+              <el-submenu index="2">
                 <template slot="title">
                   <i class="el-icon-star-on"></i>
                   <span>货币信息管理</span>
@@ -20,6 +28,9 @@
                   <el-menu-item index="/user2">user2</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
+            
+               
+             
 
               <el-submenu index="3">
                 <template slot="title">
@@ -163,6 +174,7 @@
                   <el-menu-item index="1-2">选项2</el-menu-item>
                 </el-menu-item-group>
               </el-submenu>
+            
             </el-menu>
           </el-col>
         </el-row>
@@ -176,7 +188,7 @@
       </el-header>
 
       <!-- 中间内容 -->
-      <el-main>
+      <el-main :style="{'paddingLeft':num+'px',transition:'.2s'}">
         <router-view/>
       </el-main>
 
@@ -188,7 +200,12 @@
   </el-container>
 
 </template>
- 
+ <style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 229px;
+    min-height: 400px;
+  }
+</style>
 <script>
 import Header from "@components/Header";
 import "@css/tab.scss";
@@ -196,11 +213,15 @@ export default {
     name: "Tab",
     data() {
         return {
-            isCollapse: false
+            isCollapse: false,
+            num:229
         };
     },
     components: {
         Header
+    },
+    created(){
+      if(window.innerWidth < 800) this.toggleBar();//判断浏览器宽度，用来隐藏左部导航
     },
     methods: {
         //设置菜单栏选中
@@ -215,6 +236,8 @@ export default {
         },
         toggleBar() {
             this.isCollapse = !this.isCollapse;
+            
+            this.num = this.num == 229 ? 65 : 229;
         }
     }
 };
